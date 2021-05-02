@@ -59,7 +59,7 @@ class websocketsconnect:
                 lister.append(msg)
                 messages += 1
 
-            if messages >= 100:
+            if messages >= 50:
                 await self.loop.run_in_executor(
                         None,
                         lambda: upload_data(self.engine, lister)
