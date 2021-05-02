@@ -5,7 +5,6 @@ import websockets as ws
 import datetime as dt
 import asyncio
 import re
-import os
 
 
 class websocketsconnect:
@@ -102,14 +101,3 @@ class websocketsconnect:
             }
 
         return final_message
-
-
-loop = asyncio.get_event_loop()
-
-user = os.environ.get('TWITCH_USER')
-password = os.environ.get('TWITCH_PASS')
-print(user)
-websocket = websocketsconnect(user, password, loop)
-loop.run_until_complete(websocket.connect())
-loop.create_task(websocket.join_channel('mizkif'))
-loop.run_until_complete(websocket.listen())
